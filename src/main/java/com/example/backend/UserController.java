@@ -1,25 +1,14 @@
 package com.example.backend;
 
 import org.springframework.web.bind.annotation.*;
-import java.util.List;
 
 @RestController
 @RequestMapping("/users")
+@CrossOrigin(origins = "http://localhost:3000")
 public class UserController {
 
-    private final UserRepository repo;
-
-    public UserController(UserRepository repo) {
-        this.repo = repo;
-    }
-
     @GetMapping
-    public List<User> getAllUsers() {
-        return repo.findAll();
-    }
-
-    @PostMapping
-    public User createUser(@RequestBody User user) {
-        return repo.save(user);
+    public String test() {
+        return "User API working";
     }
 }

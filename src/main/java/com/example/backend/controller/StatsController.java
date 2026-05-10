@@ -1,15 +1,26 @@
 package com.example.backend.controller;
 
-import org.springframework.web.bind.annotation.*;
-import com.example.backend.model.Stats;
+import com.example.backend.entity.User;
+import com.example.backend.repository.UserRepository;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("/stats")
-@CrossOrigin(origins = "http://localhost:3000")
 public class StatsController {
 
-    @GetMapping
-    public Stats getStats() {
-        return new Stats(100, 80, 20, 10);
+    private final UserRepository userRepository;
+
+    public StatsController(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    @GetMapping("/stats")
+    public List<String> getActiveUsers() {
+        return userRepository.findAll()
+                .stream()
+                .map(User::getStatus) // now works
+                .toList();
     }
 }

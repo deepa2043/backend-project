@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
@@ -35,5 +36,20 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+=======
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^4.22.1"
+>>>>>>> 0231430e3be135d6ed55d7562bd54d3e77520b5b
   }
 }
